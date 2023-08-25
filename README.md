@@ -11,3 +11,8 @@ Simple annotation processor, to learn how Lombok works...
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
+- Hit "Build Project" in IntelliJ
+
+[!NOTE]  
+If you run this with maven, you will get a `Compilation failure Bad service configuration file, or exception thrown while constructing Processor object: javax.annotation.processing.Processor: org.tenggara.GetterProcessor Unable to get public no-arg constructor` error.
+As this repo is just to discover how Lombok does work, this error will probably not be fixed!
