@@ -20,7 +20,7 @@ import javax.tools.Diagnostic;
 import java.util.Set;
 
 @SupportedAnnotationTypes("org.tenggara.annotations.Getter")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class GetterProcessor extends BaseProcessor {
 
     @Override

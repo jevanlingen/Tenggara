@@ -9,6 +9,7 @@ import com.sun.tools.javac.util.Names;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
+import java.lang.reflect.Method;
 
 public abstract class BaseProcessor extends AbstractProcessor {
 
@@ -19,7 +20,7 @@ public abstract class BaseProcessor extends AbstractProcessor {
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
-        //processingEnv = jbUnwrap(ProcessingEnvironment.class, processingEnv);
+        processingEnv = jbUnwrap(ProcessingEnvironment.class, processingEnv);
         super.init(processingEnv);
         this.messager = processingEnv.getMessager();
         this.trees = JavacTrees.instance(processingEnv);
@@ -28,7 +29,7 @@ public abstract class BaseProcessor extends AbstractProcessor {
         this.names = Names.instance(context);
     }
 
-    /*private static <T> T jbUnwrap(Class<? extends T> interfaze, T wrapper) {
+    private static <T> T jbUnwrap(Class<? extends T> interfaze, T wrapper) {
         T unwrapped = null;
         try {
             final Class<?> apiWrappers = wrapper.getClass().getClassLoader().loadClass("org.jetbrains.jps.javac.APIWrappers");
@@ -37,6 +38,6 @@ public abstract class BaseProcessor extends AbstractProcessor {
         }
         catch (Throwable ignored) {}
         return unwrapped != null? unwrapped : wrapper;
-    }*/
+    }
 
 }
